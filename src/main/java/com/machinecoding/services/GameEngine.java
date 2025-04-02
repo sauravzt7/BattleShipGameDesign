@@ -28,6 +28,7 @@ public class GameEngine {
      */
     public void addShip(String id, int size, int Ax, int Ay, int Bx, int By) {
         // Validate and place for PlayerA
+        // TODO: check if the placing the ship is within the player's own playing area {i.e. half of the battlefield}
         if (!battlefield.canPlaceShip(playerA, Ax, Ay, size)) {
             throw new IllegalArgumentException("Cannot place ship for PlayerA at (" + Ax + "," + Ay + ").");
         }
@@ -36,6 +37,7 @@ public class GameEngine {
 
         // Validate and place for PlayerB
         // check with playerA's ships to ensure no overlap
+        // TODO: check if the placing the ship is within the player's own playing area {i.e. half of the battlefield}
         if (!battlefield.canPlaceShip(playerB, Bx, By, size) && !battlefield.canPlaceShip(playerA, Bx, By, size)) {
             throw new IllegalArgumentException("Cannot place ship for PlayerB at (" + Bx + "," + By + ").");
         }
