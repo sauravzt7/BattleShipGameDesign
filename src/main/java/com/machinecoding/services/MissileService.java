@@ -7,7 +7,6 @@ import com.machinecoding.models.Ship;
 import com.machinecoding.strategy.FiringStrategy;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class MissileService implements IMissileService {
@@ -22,7 +21,11 @@ public class MissileService implements IMissileService {
     @Override
     public void fireMissile(Player current, Player opponent, int battlefieldSize) {
         // Attempt a random coordinate until we find one not used before
-        Coordinate coord = firingStrategy.fireMissile(current, opponent, battlefieldSize);
+
+        Coordinate coord = null;
+        while(usedCoordinates.contains(coord)) {
+            coord = firingStrategy.fireMissile(current, opponent, battlefieldSize);
+        }
         usedCoordinates.add(coord);
 
         // Check if it hits an opponent's ship
