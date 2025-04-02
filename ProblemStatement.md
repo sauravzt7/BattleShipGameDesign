@@ -55,8 +55,6 @@ Design and implement a classic **BattleShip Game** where two players take turns 
 ### Sample Output
 
 ```
-scss
-CopyEdit
 > initGame(8)
 Battlefield of size 8x8 initialized.
 
@@ -132,5 +130,3 @@ PlayerA wins the game!
 - Game can be run via a `main()` method or driver class
 
 ---
-
-Let me know if you want a starter code structure based on this!
